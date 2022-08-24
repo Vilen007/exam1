@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Home</title>
+      <style>
+          .bor{
+              border-right: 4px solid red;
+              border-bottom: 4px solid red;
+              border-left: 4px solid blue;
+              border-top: 4px solid blue;
+              display: inline-block;
+              padding: 3px
+          }
+      </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">User Logins</a>
+      <a class="btn btn-outline-primary" href="/users" >USER</a>
+
+  </div>
+</nav>
+  <div class="container">
+      <center><h1 class="mb-5 my-4 bor">User Information</h1></center><br>
+   <form action="/" method="post">
+     {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <p>First Name</p>
+                    <input type="text" name="fname" class="form-control" placeholder="First name">
+                </div>
+                <div class="col">
+                    <p>Last Name</p>
+                    <input type="text" name="lname" class="form-control" placeholder="Last name">
+                </div>
+            </div>
+     <br>
+      <div class="row">
+                <div class="col">
+                    <p>User Name</p>
+                    <input type="text" name="uname" class="form-control" placeholder="User name">
+                </div>
+                <div class="col">
+                    <p>Phone</p>
+                    <input type="text" name="phone" class="form-control" placeholder="xxxx-xxxxxxxxx">
+                </div>
+            </div>
+     <br>
+      <div class="row">
+                <div class="col">
+                    <p>Address</p>
+                    <input type="text" name="address" class="form-control" placeholder="city/area/streat/house">
+                </div>
+                <div class="col">
+                    <p>Password</p>
+                    <input type="password" name="password" class="form-control" placeholder="********">
+                </div>
+            </div>
+            <br>
+       <div class="col">
+                    <p>Date</p>
+                    <input type="date" name="date" class="form-control" placeholder="">
+                </div>
+       <br>
+     <h1 class="bor">User Role-Select Anyone</h1><br><br>
+             <div class="custom-control custom-switch">
+                <input type="checkbox" name="guest" class="custom-control-input" id="customSwitch1">
+                <label class="custom-control-label" for="customSwitch1">Guest</label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" name="user" class="custom-control-input" id="customSwitch2">
+                <label class="custom-control-label" for="customSwitch2">User</label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" name="admin" class="custom-control-input" id="customSwitch3">
+                <label class="custom-control-label" for="customSwitch3">Admin</label>
+            </div>
+     <br>
+
+
+      <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+            </div>
+       <br>
+        </form>
+  </div>
+  <div class="container">
+      <form action="/home" method="post">
+          {% csrf_token %}
+      <h1 class="bor">User Rights</h1><br>
+     <div>
+       Role Id
+       <input type="number" name="rid" class="form-control" placeholder="1/2/3">
+     </div>
+     <br>
+           <div class="col">
+                    <p>User Name</p>
+                    <input type="text" name="uname" class="form-control" placeholder="User name">
+                </div>
+          <br>
+     <h4 class="bor">Rights Name</h4>
+       <div class="custom-control custom-switch">
+                <input type="checkbox" name="r1" class="custom-control-input" id="r1">
+                <label class="custom-control-label" for="r1">Install/Uninstall </label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" name="r2" class="custom-control-input" id="r2">
+                <label class="custom-control-label" for="r2">Insert/update</label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" name="r3" class="custom-control-input" id="r3">
+                <label class="custom-control-label" for="r3">Delete</label>
+            </div>
+     <div class="custom-control custom-switch">
+                <input type="checkbox" name="r4" class="custom-control-input" id="r1">
+                <label class="custom-control-label" for="r1">Disable internet  </label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" name="r5" class="custom-control-input" id="r2">
+                <label class="custom-control-label" for="r2">Disable USB</label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" name="r6" class="custom-control-input" id="r3">
+                <label class="custom-control-label" for="r3">User internet</label>
+            </div>
+     <div class="custom-control custom-switch">
+                <input type="checkbox" name="r7" class="custom-control-input" id="r3">
+                <label class="custom-control-label" for="r3">view</label>
+            </div>
+          <br>
+           <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+            </div>
+      </form>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>
